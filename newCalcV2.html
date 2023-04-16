@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: white;
+            font-family: helvetica;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+        }
+
+        #calcul {
+            border-radius: 10px;
+            padding: 10px;
+            background-color: #394450;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+        }
+
+        #inputAfficher {
+            text-align: right;
+            width: 60px;
+            flex: 1;
+            font-size: 40px;
+            outline: none;
+            border: none;
+            padding-top: 30px;
+            padding-bottom: 10px;
+            padding-right: 10px;
+            background-color: transparent;
+        }
+
+        #afficher {
+            margin-bottom: 5px;
+            display: flex;
+            grid-column: 1/1;
+            grid-row: 1/2;
+        }
+
+        button {
+
+            font-size: 35px;
+            outline: none;
+            cursor: pointer;
+            border: none;
+            padding: 10px;
+            box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.1), 5px 5px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            background-color: #394450;
+        }
+
+        #bégal {
+            grid-column: 3/5;
+        }
+
+        #buttons {
+            grid-column: 1/1;
+            grid-row: 2/3;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+            grid-gap: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="calcul">
+        <div id="afficher">
+            <input type="text" disabled id="inputAfficher">
+        </div>
+        <div id="buttons">
+            <button
+                onclick="document.getElementById('inputAfficher').value = document.getElementById('inputAfficher').value.slice(0,-1)"
+                style="color:#5de8ce;">AC</button>
+            <button onclick="document.getElementById('inputAfficher').value = ''" style="color:#5de8ce;">DE</button>
+            <button onclick="document.getElementById('inputAfficher').value += '.'" style="color:#5de8ce;">.</button>
+            <button onclick="if (typeof eval(document.getElementById('inputAfficher').value.split('')[document.getElementById('inputAfficher').value.split('').length-1]) == 'number' == true) {
+                document.getElementById('inputAfficher').value += '/'
+            }" style="color:#5de8ce;">/</button>
+            <button onclick="document.getElementById('inputAfficher').value += '7'">7</button>
+            <button onclick="document.getElementById('inputAfficher').value += '8'">8</button>
+            <button onclick="document.getElementById('inputAfficher').value += '9'">9</button>
+            <button onclick="if (typeof eval(document.getElementById('inputAfficher').value.split('')[document.getElementById('inputAfficher').value.split('').length-1]) == 'number' == true) {
+                document.getElementById('inputAfficher').value += '*'
+            }" style="color:#5de8ce;">x</button>
+            <button onclick="document.getElementById('inputAfficher').value += '4'">4</button>
+            <button onclick="document.getElementById('inputAfficher').value += '5'">5</button>
+            <button onclick="document.getElementById('inputAfficher').value += '6'">6</button>
+            <button onclick="if (typeof eval(document.getElementById('inputAfficher').value.split('')[document.getElementById('inputAfficher').value.split('').length-1]) == 'number' == true) {
+                document.getElementById('inputAfficher').value += '-'
+            }" style="color:#5de8ce;">-</button>
+            <button onclick="document.getElementById('inputAfficher').value += '1'">1</button>
+            <button onclick="document.getElementById('inputAfficher').value += '2'">2</button>
+            <button onclick="document.getElementById('inputAfficher').value += '3'">3</button>
+            <button onclick="if (typeof eval(document.getElementById('inputAfficher').value.split('')[document.getElementById('inputAfficher').value.split('').length-1]) == 'number' == true) {
+                document.getElementById('inputAfficher').value += '+'
+            }" style="color:#5de8ce;">+</button>
+            <button onclick="document.getElementById('inputAfficher').value += '00'">00</button>
+            <button onclick="document.getElementById('inputAfficher').value += '0'">0</button>
+            <button
+                onclick="document.getElementById('inputAfficher').value = eval(document.getElementById('inputAfficher').value)"
+                style="color:#5de8ce;" id="bégal">=</button>
+        </div>
+    </div>
+</body>
+
+</html>
